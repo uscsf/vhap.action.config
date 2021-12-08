@@ -1,11 +1,17 @@
 name: "config"
 description: "write app.config.json file"
 inputs:
+  action: # github.action
+    description: "name of branch"
+    required: true
   branch: # github.ref_name
     description: "name of branch"
     required: true
   hash: # github.sha
     description: "hash of last commit"
+    required: true
+  author: # github.actor
+    description: "user that initiated this workflow run"
     required: true
 outputs:
   config: # id of output
