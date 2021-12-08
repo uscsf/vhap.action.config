@@ -2,3 +2,8 @@
 https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
 
 ncc build index.js --license licenses.txt
+
+git add .
+git commit -m "..."
+git tag -a -m "new release" v1.1
+git push --follow-tags
