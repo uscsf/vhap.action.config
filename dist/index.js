@@ -62,25 +62,25 @@ const core = __nccwpck_require__(450);
 const github = __nccwpck_require__(177);
 
 try {
-  const nameToGreet = core.getInput("who-to-greet");
-  console.log(`Hello ${nameToGreet}!`);
+  //   const nameToGreet = core.getInput("who-to-greet");
+  //   console.log(`Hello ${nameToGreet}!`);
 
-  const time = new Date().toTimeString();
-  core.setOutput("time", time);
+  //   const time = new Date().toTimeString();
+  //   core.setOutput("time", time);
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  //   const payload = JSON.stringify(github.context.payload, undefined, 2);
+  //   console.log(`The event payload: ${payload}`);
 
   const branch = core.getInput("branch");
   console.log(branch);
 
-  const config = {
+  const appconfig = {
     build: {
       branch: branch,
     },
   };
-  const appconfig = JSON.stringify(config);
-  core.setOutput("appconfig", appconfig);
+  const config = JSON.stringify(appconfig);
+  core.setOutput("config", config);
 } catch (error) {
   core.setFailed(error.message);
 }
