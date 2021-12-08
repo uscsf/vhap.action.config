@@ -1,8 +1,11 @@
 name: "config"
 description: "write app.config.json file"
 inputs:
-  branch: # id of input
+  branch: # github.ref_name
     description: "name of branch"
+    required: true
+  hash: # github.sha
+    description: "hash of last commit"
     required: true
 outputs:
   config: # id of output

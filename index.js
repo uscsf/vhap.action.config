@@ -8,9 +8,17 @@ try {
   const branch = core.getInput("branch");
   console.log(branch);
 
+  const hash = core.getInput("hash");
+  console.log(hash);
+
   const appconfig = {
     build: {
+      tag: "",
       branch: branch,
+      hash: hash,
+      time: "",
+      date: "",
+      author: "",
     },
   };
   const config = JSON.stringify(appconfig);
