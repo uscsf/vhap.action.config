@@ -1,9 +1,6 @@
 name: "config"
 description: "write app.config.json file"
 inputs:
-  action: # github.action
-    description: "name of branch"
-    required: true
   branch: # github.ref_name
     description: "name of branch"
     required: true

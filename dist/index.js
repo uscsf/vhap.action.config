@@ -8449,9 +8449,6 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(payload);
 
-  const action = core.getInput("action");
-  console.log(action);
-
   const branch = core.getInput("branch");
   console.log(branch);
 
@@ -8466,7 +8463,6 @@ try {
 
   const appconfig = {
     build: {
-      action: action,
       tag: "",
       branch: branch,
       hash: hash,
