@@ -1,1 +1,13 @@
-# action.yml
+name: "config"
+description: "write app.config.json file"
+inputs:
+  who-to-greet: # id of input
+    description: "Who to greet"
+    required: true
+    default: "World"
+outputs:
+  time: # id of output
+    description: "The time we greeted you"
+runs:
+  using: "node12"
+  main: "index.js"

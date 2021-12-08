@@ -1,0 +1,24 @@
+{
+  "name": "vhap.action.config",
+  "version": "1.0.0",
+  "description": "custom config action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uscsf/vhap.action.config.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/uscsf/vhap.action.config/issues"
+  },
+  "homepage": "https://github.com/uscsf/vhap.action.config#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}
