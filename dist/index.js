@@ -8451,6 +8451,8 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(payload);
 
+  const tag = "";
+
   const branch = core.getInput("branch");
   console.log(branch);
 
@@ -8460,16 +8462,18 @@ try {
   const time = github.context.payload.repository.pushed_at;
   console.log(time);
 
+  const data = "";
+
   const author = core.getInput("author");
   console.log(author);
 
   const appconfig = {
     build: {
-      tag: "",
+      tag: tag,
       branch: branch,
       hash: hash,
       time: time,
-      date: "",
+      date: date,
       author: author,
     },
     version: `${tag} ${branch} ${hash}`,
