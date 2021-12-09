@@ -8444,8 +8444,7 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(6024);
 const github = __nccwpck_require__(5016);
-
-const { writeFile } = __nccwpck_require__(7147);
+const fs = __nccwpck_require__(7147);
 
 try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
@@ -8487,13 +8486,11 @@ try {
 
   const file = `${folder}/app.config.json`;
   console.log(file);
-  _write(file, config);
+  fs.writeFileSync(file, config, { encoding: "utf-8" });
+
+  console.log(fs.readFileSync(file));
 } catch (error) {
   core.setFailed(error.message);
-}
-
-async function _write(file, config) {
-  await writeFile(file, config, { encoding: "utf-8" });
 }
 
 })();
