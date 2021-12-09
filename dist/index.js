@@ -8462,7 +8462,7 @@ try {
   const time = github.context.payload.repository.pushed_at;
   console.log(time);
 
-  const data = "";
+  const date = "";
 
   const author = core.getInput("author");
   console.log(author);
