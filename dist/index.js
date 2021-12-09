@@ -8510,7 +8510,7 @@ try {
 
   const _webconfig = `${folder}/web.config`;
   console.log(_webconfig);
-  fs.writeFileSync(_webconfig, WEBCONFIG, { encoding: "utf-8" });
+  fs.writeFileSync(_webconfig, WEBCONFIG.trim(), { encoding: "utf-8" });
   console.log(fs.readFileSync(_webconfig, { encoding: "utf-8" }));
 } catch (error) {
   core.setFailed(error.message);
