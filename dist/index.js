@@ -8281,14 +8281,6 @@ module.exports = eval("require")("encoding");
 
 /***/ }),
 
-/***/ 5503:
-/***/ ((module) => {
-
-module.exports = eval("require")("fs-extra");
-
-
-/***/ }),
-
 /***/ 9491:
 /***/ ((module) => {
 
@@ -8453,7 +8445,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(6024);
 const github = __nccwpck_require__(5016);
 
-const { writeFileSync } = __nccwpck_require__(5503);
+const { writeFile } = __nccwpck_require__(7147);
 
 try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
@@ -8491,9 +8483,13 @@ try {
 
   const file = `${folder}/app.config.json`;
   console.log(file);
-  writeFileSync(file, config, { encoding: "utf-8" });
+  _write(file, config);
 } catch (error) {
   core.setFailed(error.message);
+}
+
+async function _write(file, config) {
+  await writeFile(file, config, { encoding: "utf-8" });
 }
 
 })();

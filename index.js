@@ -1,7 +1,7 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
 
-const { writeFileSync } = require("fs-extra");
+const { writeFile } = require("fs");
 
 try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
@@ -39,7 +39,11 @@ try {
 
   const file = `${folder}/app.config.json`;
   console.log(file);
-  writeFileSync(file, config, { encoding: "utf-8" });
+  _write(file, config);
 } catch (error) {
   core.setFailed(error.message);
+}
+
+async function _write(file, config) {
+  await writeFile(file, config, { encoding: "utf-8" });
 }
