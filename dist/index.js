@@ -8446,6 +8446,25 @@ const core = __nccwpck_require__(6024);
 const github = __nccwpck_require__(5016);
 const fs = __nccwpck_require__(7147);
 
+const WEBCONFIG = `
+<configuration>
+  <system.webServer>
+    <rewrite>
+      <rules>
+        <rule name="Angular Routes" stopProcessing="true">
+          <match url="^(?!services|sfi.dit.web/|sfi|legacy|iwalk.api|iwitness.admin|identitystore|ofi.api).*$" />
+          <conditions logicalGrouping="MatchAll">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+          </conditions>
+          <action type="Rewrite" url="/index.html" />
+        </rule>
+      </rules>
+    </rewrite>
+  </system.webServer>
+</configuration>
+`;
+
 try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(payload);
@@ -8484,11 +8503,15 @@ try {
   const folder = core.getInput("folder");
   console.log(folder);
 
-  const file = `${folder}/app.config.json`;
-  console.log(file);
-  fs.writeFileSync(file, config, { encoding: "utf-8" });
+  const _appconfigjson = `${folder}/app.config.json`;
+  console.log(_appconfigjson);
+  fs.writeFileSync(_appconfigjson, config, { encoding: "utf-8" });
+  console.log(fs.readFileSync(_appconfigjson, { encoding: "utf-8" }));
 
-  console.log(fs.readFileSync(file));
+  const _webconfig = `${folder}/web.config`;
+  console.log(_webconfig);
+  fs.writeFileSync(_webconfig, WEBCONFIG, { encoding: "utf-8" });
+  console.log(fs.readFileSync(_webconfig, { encoding: "utf-8" }));
 } catch (error) {
   core.setFailed(error.message);
 }
