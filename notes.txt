@@ -1,6 +1,15 @@
 
+next steps:
+  write config to app.config.json file
+  write web.config file
+ex. https://github.com/DamianReeves/write-file-action/blob/master/src/index.ts
+
+
+https://docs.github.com/en/actions
+https://docs.github.com/en/actions/learn-github-actions/contexts
+
+
 https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action
-https://github.com/DamianReeves/write-file-action/blob/master/src/index.ts
 
 ncc build index.js --license licenses.txt
 
