@@ -10,6 +10,9 @@ inputs:
   author: # github.actor
     description: "user that initiated this workflow run"
     required: true
+  base: # ex. / or /vha-dev/
+    description: "base href"
+    required: true
   folder: # ex. dist/apps/vha
     description: "folder to write configs to"
     required: true
