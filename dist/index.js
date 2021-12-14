@@ -8457,7 +8457,7 @@ const WEBCONFIG = `
                         <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
                         <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
           </conditions>
-          <action type="Rewrite" url="${base}index.html" />
+          <action type="Rewrite" url="[base]index.html" />
         </rule>
       </rules>
     </rewrite>
@@ -8498,7 +8498,7 @@ try {
   console.log(fs.readFileSync(_appconfigjson, { encoding: "utf-8" }));
 
   const _webconfig = `${folder}/web.config`;
-  const _WEBCONFIG = WEBCONFIG.replace("${base}", base).trim();
+  const _WEBCONFIG = WEBCONFIG.replace("[base]", base).trim();
   fs.writeFileSync(_webconfig, _WEBCONFIG, { encoding: "utf-8" });
   console.log(fs.readFileSync(_webconfig, { encoding: "utf-8" }));
 } catch (error) {
